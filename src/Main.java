@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Cart cart = new Cart();
         Store store = new Store();
-        UserManager userManager = new UserManager(); // Initialize the manager
+        UserManager userManager = new UserManager();
 
         User currentUser = null;
 
