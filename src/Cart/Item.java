@@ -14,6 +14,6 @@ public record Item(String item, double price) {
     public double getPrice() {
         return price;
     }
-}
 
+}
 

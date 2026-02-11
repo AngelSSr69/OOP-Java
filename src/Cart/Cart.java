@@ -8,6 +8,10 @@ public class Cart {
         items.add(item);
     }
 
+    public boolean removeItemByName(String item_name) {
+        return items.removeIf(item -> item.getName().equalsIgnoreCase(item_name));
+    }
+
     public double getTotal() {
         double total = 0;
         for (Item item : items) {

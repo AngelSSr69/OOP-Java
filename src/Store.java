@@ -33,6 +33,29 @@ public class Store {
         categories.put("snacks", snacks);
     }
 
+
+    public boolean removeItem(String category, String itemName) {
+        ArrayList<Item> items = categories.get(category.toLowerCase());
+        if (items != null) {
+            return items.removeIf(item -> item.getName().equalsIgnoreCase(itemName));
+        }
+        return false;
+    }
+
+
+    public void updateItemPrice(String category, String itemName, double newPrice) {
+        ArrayList<Item> items = categories.get(category.toLowerCase());
+        if (items != null) {
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).getName().equalsIgnoreCase(itemName)) {
+                    items.set(i, new Item(itemName, newPrice));
+                    return;
+                }
+            }
+        }
+    }
+
+
     public ArrayList<Item> getCategory(String categoryName) {
         return categories.get(categoryName.toLowerCase());
     }

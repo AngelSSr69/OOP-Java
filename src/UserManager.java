@@ -20,4 +20,22 @@ public class UserManager {
         }
         return null;
     }
+
+    public boolean updatePassword(String username, String oldPass, String newPass) {
+        User user = users.get(username);
+        if (user != null && user.verifyPassword(oldPass)) {
+            users.put(username, new User(username, newPass));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deleteUser(String username, String password) {
+        User user = users.get(username);
+        if (user != null && user.verifyPassword(password)) {
+            users.remove(username);
+            return true;
+        }
+        return false;
+    }
 }
